@@ -1,0 +1,8 @@
+tomaszmorgas\financemanager\service\ProductService.class
+tomaszmorgas\financemanager\dao\ProductRepository.class
+tomaszmorgas\financemanager\entity\DateRange.class
+tomaszmorgas\financemanager\entity\Product.class
+tomaszmorgas\financemanager\FinancemanagerApplication.class
+tomaszmorgas\financemanager\entity\FullProduct.class
+tomaszmorgas\financemanager\controller\ProductController.class
+tomaszmorgas\financemanager\service\ProductServiceImpl.class

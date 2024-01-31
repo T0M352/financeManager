@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Finanse</title>
+
+    <style>
+        .bold-text {
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<h3>-------Statystyki-------</h3>
+<hr>
+<body>
+
+<p>Statystki dla okresu od <span th:text="${startDate}"></span>  do  <span th:text="${endDate}"></span></p>
+
+
+<p>Suma zarobków: <span th:text="${sumKEaring}" th:class="${'bold-text'}"></span></p>
+<p>Suma Cen: <span th:text="${sumPrices}" th:class="${'bold-text'}"></span></p>
+<p>Suma Cen Netto: <span th:text="${sumPricesNetto}" th:class="${'bold-text'}"></span></p>
+<p>Liczba pozycji: <span th:text="${count}" th:class="${'bold-text'}"></span></p>
+
+<hr>
+<a th:href="@{/products/menu}">Powroc do menu</a>
+
+</body>
+</html>

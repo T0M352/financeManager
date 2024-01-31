@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Lista produktów</title>
+</head>
+<body>
+
+<div class="container">
+
+    <h3>Lista produktów</h3>
+    <hr>
+
+    <a th:href="@{/products/showFormForAdd}"
+    class="btn btn-primary btn-sm mb-3">
+        Dodaj produkt
+    </a>
+
+    <a th:href="@{/products/showNotShippedYet}"
+       class="btn btn-primary btn-sm mb-3">
+        Pokaz niewysłane
+    </a>
+
+    <a th:href="@{/products/list}"
+       class="btn btn-primary btn-sm mb-3">
+        Pokaz wszystkie
+    </a>
+
+
+    <div style="overflow-x: auto; width: 100%;">
+    <table class="table table-bordered table-striped" style="table-layout: fixed; width: 100%;">
+        <thead class="table-dark">
+            <tr>
+                <th>Nazwa</th>
+                <th>Cena netto</th>
+                <th>Cena brutto</th>
+                <th>Podatek w %</th>
+                <th>typ faktury</th>
+                <th>rodzaj płatności</th>
+                <th>przychód od marży</th> <!-- (3% z ceny - 19% podatku dochodowego) -->
+                <th>data zakupu</th>
+                <th>sprzedano</th>
+                <th>Akcja</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="tempProduct : ${products}">
+                <td th:text="${tempProduct.productName}"/>
+                <td th:text="${tempProduct.fullPrice}"/>
+                <td th:text="${tempProduct.nettoPrice}"/>
+                <td th:text="${tempProduct.tax}"/>
+                <td th:text="${tempProduct.typeOfInvoice}"/>
+                <td th:text="${tempProduct.typeOfPayment}"/>
+                <td th:text="${tempProduct.kEarnings}"/>
+                <td th:text="${tempProduct.buyDate}"/>
+                <td th:text="${tempProduct.shipped ? 'Tak' : 'Nie'}"/>
+                <td>
+                    <a th:href="@{/products/showFormForUpdate(productId=${tempProduct.id})}"
+                    class="btn btn-info btn-sm mb-3">
+                        Edytuj
+                    </a>
+                    <a th:href="@{/products/delete(productId=${tempProduct.id})}"
+                       class="btn btn-danger btn-sm"
+                       onclick="if (!(confirm('Czy na pewno chcesz usunąć tą pozycje?'))) return false">
+                        Usuń
+                    </a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <hr>
+    <a th:href="@{/products/menu}">Powroc do menu</a>
+
+</div>
+
+</body>
+</html>

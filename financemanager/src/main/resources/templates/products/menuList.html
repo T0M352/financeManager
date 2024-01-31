@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <title>Finanse</title>
+</head>
+<h3>--------------------Zarządzaj finansami-----------------------</h3>
+<hr>
+
+  <a th:href="@{/products/list}"
+     class="btn btn-primary btn-block ml-5">
+    Lista produktów
+  </a>
+
+  <a th:href="@{/products/showTimeRangeListForm}"
+     class="btn btn-primary btn-block ml-5">
+    Wyswietl produkty dla danego okresu czasu
+  </a>
+
+  <a th:href="@{/products/showStatisticTimeForm}"
+     class="btn btn-primary btn-block ml-5">
+    Wyświetl statystyki dla danego okresu czasu
+  </a>
+
+
+
+
+
+<body>
+
+</body>
+</html>
