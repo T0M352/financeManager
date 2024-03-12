@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  body {
+    background-color: #dadada;
+  }
+
+  #main {
+    background-color: rgb(97, 97, 97);
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 3px;
+    margin-bottom: 2px;
+  }
+
+  header {
+    background-color: rgb(22, 22, 22);
+    height: 80px;
+  }
+
+  header h1 {
+    padding: 10x;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    font-size: x-large;
+    text-align: center;
+  }
+
+  #maincontent {
+    margin: 2px;
+  }
+
+  nav {
+    float: left;
+    width: 170px;
+    background-color: rgb(112, 112, 112);
+    padding: 1px 0 0 1px;
+  }
+
+  #content {
+    margin: 5px 5px 5px 183px;
+    padding: 0 10px;
+    height: auto;
+  }
+
+  footer {
+    background-color: lightblue;
+    padding: 2px;
+    height: 30px;
+  }
+
+  footer > p {
+    padding: 0 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  #menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #menu > li {
+    background-color: rgb(109, 83, 83);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 18px;
+    width: 170px;
+  }
+
+  #menu > li > a {
+      display: block;
+      border: 1px solid rgb(41, 41, 41);
+      color: #dadada;
+      padding: 10px;
+      text-decoration: none;
+  }
+
+  #menu>li>a:hover{
+      background-color: darkcyan;
+      color: crimson;
+      padding-left: 20px;
+      font-weight: bold;
+  }
+

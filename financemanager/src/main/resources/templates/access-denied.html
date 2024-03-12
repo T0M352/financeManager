@@ -24,40 +24,21 @@
 
         <article id="content">
 
-            <figure>
-                    <h3>Wybierz zakres dat</h3>
+            <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+                <h3>Nie masz uprawnien aby wykonac tą operacje</h3>
+            </div>
 
-
-                    <form action="#" th:action="@{/products/showStats}"
-                          th:object="${dateRange}" method="POST">
-
-
-                        <input type="date" th:field="*{startDate}"
-                               class="form-control mb-4 w-25" placeholder="Data w formacie RRRR-MM-DD">
-
-
-                        <input type="date" th:field="*{endDate}"
-                               class="form-control mb-4 w-25" placeholder="Data w formacie RRRR-MM-DD">
-
-
-                        <button type="submit" class="btn btn-info col-2">Pokaz statystki</button>
-
-                    </form>
-
-            </figure>
 
         </article>
         <div style="clear: both"></div>
     </div>
-
-
     <footer style="display: flex; justify-content: space-between; align-items: center;">
 
-            <form action="#" th:action="@{/logout}" method="POST" class="fixed-button">
-                <input type="submit" value="Wyloguj"/>
-            </form>
+        <form action="#" th:action="@{/logout}" method="POST" class="fixed-button">
+            <input type="submit" value="Wyloguj"/>
+        </form>
 
-            <i>Zalogowano jako: <span sec:authentication="principal.username"></span> o uprawnieniach: <span sec:authentication="principal.authorities"></span> </i>
+        <i>Zalogowano jako: <span sec:authentication="principal.username"></span> o uprawnieniach: <span sec:authentication="principal.authorities"></span> </i>
 
     </footer>
 

@@ -1,83 +1,109 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <title>Dodaj produkt</title>
-
-
-
-    <style>
-        .error {color:red}
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Lista produktów</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<div class="container">
+<main id="main">
+    <header>
+        <h1>Statystyki dla zakresu czasu</h1>
+    </header>
 
-    <h3>Produkty</h3>
-    <hr>
+    <div id="maincontent">
+        <nav>
+            <ul id="menu">
+                <li><a th:href="@{/products/list}">Lista produktów</a></li>
+                <li><a th:href="@{/products/showTimeRangeListForm}">Produkty dla okresu czasu</a></li>
+                <li><a th:href="@{/products/showStatisticTimeForm}">Statystyki dla okresu czasu</a></li>
+            </ul>
+        </nav>
 
+        <article id="content">
 
-        <p class="h4 mb-4">Dodaj nowy produkt</p>
-        <form action="#" th:action="@{/products/save}"
-              th:object="${product}" method="POST">
-            <input type="hidden" th:field="*{id}">
-
-            <span th:if="*{#fields.hasErrors('productName')}"
-                  th:errors="*{productName}"
-                  class="error"></span>
-            <input type="text" th:field="*{productName}"
-                   class="form-control mb-4 w-25" placeholder="Nazwa">
-
-
-            Pełna cena (grosze oddzielane kropką)
-            <input type="text" th:field="*{fullPrice}"
-                   class="form-control mb-4 w-25" placeholder="Pełna cena">
+            <figure>
 
 
 
 
-            Podatek w %
-            <input type="number" th:field="*{tax}"
-                   class="form-control mb-4 w-25" value="23">
+
+                    <p class="h4 mb-4">Dodaj nowy produkt</p>
+                    <form action="#" th:action="@{/products/save}"
+                          th:object="${product}" method="POST">
+                        <input type="hidden" th:field="*{id}">
+
+                        <span th:if="*{#fields.hasErrors('productName')}"
+                              th:errors="*{productName}"
+                              class="error"></span>
+                        <input type="text" th:field="*{productName}"
+                               class="form-control mb-4 w-25" placeholder="Nazwa">
 
 
-           <select th:field="*{typeOfInvoice}" class="form-control mb-4 w-25" >
-                 <option value="'Faktura VAT'">Faktura VAT</option>
-                 <option value="'Vat marza'">Var marża</option>
-                 <option value="'Brak Faktury'">Brak faktury</option>
-             </select>
-
-
-            <select th:field="*{typeOfPayment}" class="form-control mb-4 w-25" >
-                <option value="Allegro">Allegro</option>
-                <option value="'Za pobraniem'">Za pobraniem</option>
-                <option value="'Przelew przez strone'">Przelew przez strone</option>
-                <option value="'Przelew na konto'">Przelew na konto</option>
-                <option value="Inny">Inny</option>
-            </select>
-
-
-            <span th:if="*{#fields.hasErrors('buyDate')}"
-                  th:errors="*{buyDate}"
-                  class="error"></span>
-             <input type="date" th:field="*{buyDate}"
-                    class="form-control mb-4 w-25" placeholder="Data w formacie RRRR-MM-DD">
+                        Pełna cena (grosze oddzielane kropką)
+                        <input type="text" th:field="*{fullPrice}"
+                               class="form-control mb-4 w-25" placeholder="Pełna cena">
 
 
 
-             Wysłano: <input type="checkbox" th:field="*{shipped}" value="false" unchecked>
 
-             <br><br>
-             <button type="submit" class="btn btn-info col-2">Dodaj</button>
-             <br><br>
-         </form>
-
-   <hr>
-   <a th:href="@{/products/list}">Powroc do listy</a>
- </div>
+                        Podatek w %
+                        <input type="number" th:field="*{tax}"
+                               class="form-control mb-4 w-25" value="23">
 
 
- </body>
- </html>
+                        <select th:field="*{typeOfInvoice}" class="form-control mb-4 w-25" >
+                            <option value="'Faktura VAT'">Faktura VAT</option>
+                            <option value="'Vat marza'">Var marża</option>
+                            <option value="'Brak Faktury'">Brak faktury</option>
+                        </select>
+
+
+                        <select th:field="*{typeOfPayment}" class="form-control mb-4 w-25" >
+                            <option value="Allegro">Allegro</option>
+                            <option value="'Za pobraniem'">Za pobraniem</option>
+                            <option value="'Przelew przez strone'">Przelew przez strone</option>
+                            <option value="'Przelew na konto'">Przelew na konto</option>
+                            <option value="Inny">Inny</option>
+                        </select>
+
+
+                        <span th:if="*{#fields.hasErrors('buyDate')}"
+                              th:errors="*{buyDate}"
+                              class="error"></span>
+                        <input type="date" th:field="*{buyDate}"
+                               class="form-control mb-4 w-25" placeholder="Data w formacie RRRR-MM-DD">
+
+
+
+                        Wysłano: <input type="checkbox" th:field="*{shipped}" value="false" unchecked>
+
+                        <br><br>
+                        <button type="submit" class="btn btn-info col-2">Dodaj</button>
+                        <br><br>
+                    </form>
+
+
+
+
+
+            </figure>
+
+        </article>
+        <div style="clear: both"></div>
+    </div>
+    <footer style="display: flex; justify-content: space-between; align-items: center;">
+
+        <form action="#" th:action="@{/logout}" method="POST" class="fixed-button">
+            <input type="submit" value="Wyloguj"/>
+        </form>
+
+        <i>Zalogowano jako: <span sec:authentication="principal.username"></span> o uprawnieniach: <span sec:authentication="principal.authorities"></span> </i>
+
+    </footer>
+
+</main>
+</body>
+</html>
