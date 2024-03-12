@@ -1,4 +1,3 @@
-Aplikacja do zarządzania handlem stworzona przy użyciu frameworku Spring Boot w języku Java. 
-Interfejs użytkownika został zrealizowany za pomocą technologii Thymeleaf, korzystając z szablonów HTML. 
-Aplikacja jest połączona z bazą danych i umożliwia efektywne zarządzanie prostą działalnością, której głównym celem jest pośrednictwo w handlu z 3% marżą. 
-Schemat bazy danych znajduje sie w application.propeties.
+A web application for managing trade created using the Spring Boot framework in Java. The user interface has been implemented using Thymeleaf technology, utilizing HTML templates. The application is connected to a database and has a user authentication system through login. User data is stored in the database encrypted using Bcrypt. The application has a permissions system for specific user groups, which restricts certain functions depending on the level of permissions.
+
+
